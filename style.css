@@ -1,0 +1,68 @@
+body {
+  color: black;
+  /* position: fixed; */
+  background-color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  width: 100%;
+}
+.logo img {
+  height: 50px;
+}
+
+
+nav a {
+  color: black;
+  margin-left: 20px;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px black;
+  text-transform: capitalize;
+}
+
+.hero {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1497366216548-37526070297c') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.6);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.section {
+  padding: 0px 50px;
+}
+
+.card {
+  background: #f4f4f4;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+button {
+  padding: 12px 20px;
+  background: orange;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
