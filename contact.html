@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Contact</title>
-  <link rel="stylesheet" href="style.css">
+<title>Contact</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-  <div class="logo">
-  <img src="logo.png" alt="Logo">
-</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<a href="index.html" class="logo">Nexora<span>Digital</span></a>
 </header>
 
-<section class="section">
-  <h1>Contact Us</h1>
-  <form onsubmit="submitForm(event)">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+<section class="contact-section">
+
+<h1>Contact Us</h1>
+
+<div class="contact-container">
+
+<form id="contact-form">
+
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" placeholder="Your Message" required></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+<p id="success-msg" style="display:none; color:lightgreen; margin-top:10px;">
+✅ Message sent successfully!
+</p>
+
+<br>
+
+<a href="https://wa.me/2348012345678" class="whatsapp-btn">
+Chat on WhatsApp
+</a>
+
+</div>
+
 </section>
 
 <footer>
-  <p>© 2026 MyBusiness</p>
+<p>© 2026 Nexora Digital</p>
+<p>Email: info@nexora.com</p>
 </footer>
 
 <script>
-function submitForm(e) {
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", async function(e){
   e.preventDefault();
-  alert('Message sent successfully!');
-}
+
+  const data = new FormData(form);
+
+  await fetch("https://formspree.io/f/REPLACE_ID_HERE", {
+    method: "POST",
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  form.reset();
+  document.getElementById("success-msg").style.display = "block";
+});
 </script>
 
 </body>

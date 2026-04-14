@@ -1,40 +1,141 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Home</title>
-  <link rel="stylesheet" href="style.css">
+<title>Nexora Digital</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-  <div class="logo">
-  <img src="logo.png" alt="Logo">
-</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<a href="index.html" class="logo">Nexora<span>Digital</span></a>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+<button onclick="toggleMode()">🌙</button>
+</nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="overlay">
-    <h1>We Build Modern Websites</h1>
-    <p>Professional solutions for your business</p>
-    <a href="contact.html"><button>Get Started</button></a>
+
+<div class="overlay">
+
+<h1 class="gradient-text">
+<span id="typing"></span><span class="cursor"></span>
+</h1>
+
+<p>Helping businesses grow with powerful digital solutions</p>
+
+<a href="contact.html"><button>Get Started</button></a>
+
+</div>
+
+</section>
+
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slides">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a">
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats reveal">
+  <div class="stats-container">
+
+    <div class="stat">
+      <h2 class="counter" data-target="50">0</h2>
+      <p>Projects Completed</p>
+    </div>
+
+    <div class="stat">
+      <h2 class="counter" data-target="20">0</h2>
+      <p>Happy Clients</p>
+    </div>
+
+    <div class="stat">
+      <h2 class="counter" data-target="3">0</h2>
+      <p>Years Experience</p>
+    </div>
+
   </div>
 </section>
 
-<section class="section">
-  <h2>Our Services</h2>
-  <div class="card">Web Design</div>
-  <div class="card">Branding</div>
-  <div class="card">SEO Optimization</div>
+<!-- TESTIMONIALS -->
+<section class="testimonials reveal">
+
+<h1>What Clients Say</h1>
+
+<div class="testimonial-box">
+<p>"Amazing work! My business grew after working with Nexora."</p>
+<strong>- Client</strong>
+</div>
+
 </section>
 
 <footer>
-  <p>© 2026 MyBusiness</p>
+<p>© 2026 Nexora Digital</p>
+<p>Email: info@nexora.com</p>
 </footer>
+
+<!-- SCRIPT -->
+<script>
+
+/* TYPING EFFECT */
+const text = "We Build Modern Websites";
+let i = 0;
+
+function typing(){
+  if(i < text.length){
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing, 50);
+  }
+}
+typing();
+
+/* DARK MODE */
+function toggleMode(){
+  document.body.classList.toggle("dark-mode");
+}
+
+/* SCROLL REVEAL */
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add("active");
+    }
+  });
+});
+
+/* COUNTER */
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+  const update = () => {
+    const target = +counter.getAttribute("data-target");
+    const current = +counter.innerText;
+    const increment = target / 50;
+
+    if(current < target){
+      counter.innerText = Math.ceil(current + increment);
+      setTimeout(update, 40);
+    } else {
+      counter.innerText = target + "+";
+    }
+  };
+  update();
+});
+
+</script>
 
 </body>
 </html>

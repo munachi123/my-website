@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<a href="index.html" class="logo">Nexora<span>Digital</span></a>
+</header>
+
+<section class="contact-section">
+
+<h1>Login</h1>
+
+<div class="contact-container">
+
+<form onsubmit="login(event)">
+<input type="text" id="user" placeholder="Username">
+<input type="password" id="pass" placeholder="Password">
+<button>Login</button>
+</form>
+
+</div>
+
+</section>
+
+<script>
+function login(e){
+e.preventDefault();
+if(user.value==="admin" && pass.value==="1234"){
+alert("Login successful");
+}else{
+alert("Wrong details");
+}
+}
+</script>
+
+</body>
+</html>
