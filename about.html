@@ -11,37 +11,70 @@
 <a href="index.html" class="logo">Nexora<span>Digital</span></a>
 </header>
 
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+</nav>
+
 <section class="about-section">
 
-<h1>About Us</h1>
+<div class="about-overlay reveal">
+
+<h1 class="gradient-text">About Us</h1>
 
 <div class="about-container">
 
+<!-- IMAGE -->
 <div class="about-image">
-<img src="images/ceo.png">
+<img src="images/ceo.png" alt="CEO">
 </div>
 
+<!-- TEXT -->
 <div class="about-text">
 
 <h2>Eneokwe Munachi Goodluck</h2>
 
 <p>
-A young and driven technology entrepreneur passionate about innovation and digital excellence. He focuses on building modern digital solutions that help businesses grow and succeed online.
+A <span class="highlight">young and driven entrepreneur</span> passionate about 
+<span class="highlight">innovation</span> and digital excellence.
 </p>
 
 <p>
-With strong skills in programming and web development, he creates clean, efficient, and user-friendly websites that deliver real results.
+He specializes in building <span class="highlight">modern, high-performance websites</span> 
+that help businesses grow and stand out online.
 </p>
 
 <p>
-His vision is to build impactful digital products that shape the future and empower businesses worldwide.
+His mission is to create <span class="highlight">powerful digital experiences</span> 
+that shape the future and empower businesses worldwide.
 </p>
+
+</div>
 
 </div>
 
 </div>
 
 </section>
+
+<footer>
+<p>© 2026 Nexora Digital</p>
+</footer>
+
+<!-- SCROLL SCRIPT -->
+<script>
+const reveal = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+  reveal.forEach(el => {
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add("active");
+    }
+  });
+});
+</script>
 
 </body>
 </html>

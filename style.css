@@ -369,3 +369,240 @@ header.scrolled {
   background: #222;
   color: white;
 }
+/* ABOUT BACKGROUND */
+.about-section {
+  background: url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover no-repeat;
+  padding: 80px 20px;
+  position: relative;
+}
+
+/* DARK OVERLAY (READABILITY FIX) */
+.about-overlay {
+  background: rgba(0, 0, 0, 0.75); /* darker = clearer text */
+  padding: 50px;
+  border-radius: 12px;
+  max-width: 1100px;
+  margin: auto;
+  color: white;
+}
+
+/* LAYOUT */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* IMAGE */
+.about-image img {
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* TEXT */
+.about-text {
+  max-width: 600px;
+}
+
+.about-text h2 {
+  margin-bottom: 15px;
+  color: orange;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+}
+/* ===== ABOUT ELITE+ ===== */
+
+/* BACKGROUND */
+.about-section {
+  background: url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover no-repeat;
+  padding: 80px 20px;
+}
+
+/* GLASS EFFECT */
+.about-overlay {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 15px;
+  max-width: 1100px;
+  margin: auto;
+  color: white;
+}
+
+/* LAYOUT */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* IMAGE */
+.about-image img {
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* TEXT */
+.about-text {
+  max-width: 600px;
+}
+
+.about-text h2 {
+  margin-bottom: 15px;
+  color: orange;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+/* GRADIENT TITLE */
+.gradient-text {
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(45deg, orange, #ffcc70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* HIGHLIGHT */
+.highlight {
+  color: orange;
+  font-weight: bold;
+}
+
+/* SCROLL EFFECT */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width:768px){
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* ===== SERVICES ELITE ===== */
+
+/* BACKGROUND */
+.services-section {
+  background: url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover no-repeat;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* OVERLAY */
+.services-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.services-section * {
+  position: relative;
+  z-index: 1;
+}
+
+/* GRID */
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* CARD */
+.service-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  color: white;
+  transition: 0.4s;
+}
+
+/* ICON */
+.service-icon {
+  font-size: 40px;
+  color: orange;
+  margin-bottom: 15px;
+}
+
+/* HOVER */
+.service-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+/* ===== FULL ELITE DESIGN ===== */
+
+/* Smooth transitions */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(45deg, orange, #ffcc70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 60px;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(45deg, orange, #ff9900);
+  border: none;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: #000;
+  color: white;
+  font-size: 14px;
+}
