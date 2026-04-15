@@ -2,6 +2,9 @@
 <html>
 <head>
 <title>About</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -9,7 +12,6 @@
 
 <header>
 <a href="index.html" class="logo">Nexora<span>Digital</span></a>
-</header>
 
 <nav>
 <a href="index.html">Home</a>
@@ -17,38 +19,33 @@
 <a href="services.html">Services</a>
 <a href="contact.html">Contact</a>
 </nav>
+</header>
 
 <section class="about-section">
 
 <div class="about-overlay reveal">
 
-<h1 class="gradient-text">About Us</h1>
+<h1 style="color:orange;">About Us</h1>
 
 <div class="about-container">
 
-<!-- IMAGE -->
 <div class="about-image">
-<img src="images/ceo.png" alt="CEO">
+<img src="images/ceo.png">
 </div>
 
-<!-- TEXT -->
 <div class="about-text">
-
 <h2>Eneokwe Munachi Goodluck</h2>
 
 <p>
-A <span class="highlight">young and driven entrepreneur</span> passionate about 
-<span class="highlight">innovation</span> and digital excellence.
+A <span class="highlight">young and driven entrepreneur</span> passionate about innovation and digital excellence.
 </p>
 
 <p>
-He specializes in building <span class="highlight">modern, high-performance websites</span> 
-that help businesses grow and stand out online.
+He builds <span class="highlight">modern, high-performance websites</span> that help businesses grow.
 </p>
 
 <p>
-His mission is to create <span class="highlight">powerful digital experiences</span> 
-that shape the future and empower businesses worldwide.
+Focused on <span class="highlight">powerful digital experiences</span> for the future.
 </p>
 
 </div>
@@ -63,17 +60,23 @@ that shape the future and empower businesses worldwide.
 <p>© 2026 Nexora Digital</p>
 </footer>
 
-<!-- SCROLL SCRIPT -->
 <script>
-const reveal = document.querySelectorAll(".reveal");
+const reveals = document.querySelectorAll('.reveal');
 
-window.addEventListener("scroll", () => {
-  reveal.forEach(el => {
-    if(el.getBoundingClientRect().top < window.innerHeight - 100){
-      el.classList.add("active");
+function revealOnScroll() {
+  const windowHeight = window.innerHeight;
+
+  reveals.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 50) {
+      el.classList.add('active');
     }
   });
-});
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 </script>
 
 </body>
