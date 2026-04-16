@@ -1,47 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Contact</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Nexora Digital</title>
+
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* ===== CONTACT PAGE PREMIUM ===== */
+.contact-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
+  url("https://images.unsplash.com/photo-1492724441997-5dc865305da7");
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-box {
+  width: 90%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  text-align: center;
+}
+
+.contact-box h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.contact-box h1 span {
+  color: orange;
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+.contact-box textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.send-btn {
+  background: linear-gradient(45deg, orange, #ffb347);
+  color: white;
+}
+
+.whatsapp-btn {
+  background: #25D366;
+  color: white;
+}
+
+/* Hover */
+.btn:hover {
+  transform: scale(1.05);
+}
+</style>
+
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
 <a href="index.html" class="logo">Nexora<span>Digital</span></a>
-</header>
+
 <nav>
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="services.html">Services</a>
 <a href="contact.html">Contact</a>
 </nav>
+</header>
 
+<!-- CONTACT SECTION -->
 <section class="contact-section">
 
-<h1>Contact Us</h1>
+<div class="contact-box">
 
-<div class="contact-container">
+<h1>Contact <span>Us</span></h1>
 
 <form id="contact-form">
 
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
+<input type="text" name="user_name" placeholder="Your Name" required>
+
+<input type="email" name="user_email" placeholder="Your Email" required>
+
 <textarea name="message" placeholder="Your Message" required></textarea>
 
-<button type="submit">Send Message</button>
+<button type="submit" class="btn send-btn">Send Message</button>
 
 </form>
 
-<p id="success-msg" style="display:none; color:lightgreen; margin-top:10px;">
-✅ Message sent successfully!
-</p>
-
-<br>
-
-<a href="https://wa.me/2348012345678" class="whatsapp-btn">
-Chat on WhatsApp
+<a href="https://wa.me/2349030063809" target="_blank">
+<button class="btn whatsapp-btn">Chat on WhatsApp</button>
 </a>
+
+<br><br>
+
+<button onclick="payWithPaystack()" class="btn send-btn">Pay Now</button>
 
 </div>
 
@@ -49,28 +130,46 @@ Chat on WhatsApp
 
 <footer>
 <p>© 2026 Nexora Digital</p>
-<p>Email: info@nexora.com</p>
 </footer>
 
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <script>
-const form = document.getElementById("contact-form");
+(function(){
+emailjs.init("YOUR_PUBLIC_KEY");
+})();
 
-form.addEventListener("submit", async function(e){
-  e.preventDefault();
+document.getElementById("contact-form")
+.addEventListener("submit", function(e) {
+e.preventDefault();
 
-  const data = new FormData(form);
+emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+.then(function() {
+alert("Message sent successfully!");
+}, function(error) {
+alert("Failed to send message.");
+});
+});
+</script>
 
-  await fetch("https://formspree.io/f/REPLACE_ID_HERE", {
-    method: "POST",
-    body: data,
-    headers: {
-      'Accept': 'application/json'
+<!-- PAYSTACK -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+function payWithPaystack() {
+  let handler = PaystackPop.setup({
+    key: 'YOUR_PAYSTACK_PUBLIC_KEY',
+    email: 'customer@email.com',
+    amount: 20000 * 100,
+    currency: "NGN",
+    callback: function(response){
+      alert('Payment successful!');
     }
   });
 
-  form.reset();
-  document.getElementById("success-msg").style.display = "block";
-});
+  handler.openIframe();
+}
 </script>
 
 </body>

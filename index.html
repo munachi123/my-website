@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexora Digital</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,68 +18,47 @@
 <a href="about.html">About</a>
 <a href="services.html">Services</a>
 <a href="contact.html">Contact</a>
-<button onclick="toggleMode()">🌙</button>
 </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
+<div class="overlay glass fade-in">
 
-<div class="overlay">
+<h1 class="gradient-text">We Build Modern Websites</h1>
+<p>Premium digital solutions for growing businesses</p>
 
-<h1 class="gradient-text">
-<span id="typing"></span><span class="cursor"></span>
-</h1>
-
-<p>Helping businesses grow with powerful digital solutions</p>
-
-<a href="contact.html"><button>Get Started</button></a>
+<a href="contact.html">
+<button>Get Started</button>
+</a>
 
 </div>
-
 </section>
-
-<!-- SLIDER -->
-<div class="slider">
-  <div class="slides">
-    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
-    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a">
-    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
-  </div>
-</div>
 
 <!-- STATS -->
-<section class="stats reveal">
-  <div class="stats-container">
+<section class="stats fade-in">
 
-    <div class="stat">
-      <h2 class="counter" data-target="50">0</h2>
-      <p>Projects Completed</p>
-    </div>
-
-    <div class="stat">
-      <h2 class="counter" data-target="20">0</h2>
-      <p>Happy Clients</p>
-    </div>
-
-    <div class="stat">
-      <h2 class="counter" data-target="3">0</h2>
-      <p>Years Experience</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials reveal">
-
-<h1>What Clients Say</h1>
-
-<div class="testimonial-box">
-<p>"Amazing work! My business grew after working with Nexora."</p>
-<strong>- Client</strong>
+<div>
+<h2>50+</h2>
+<p>Projects Completed</p>
 </div>
 
+<div>
+<h2>20+</h2>
+<p>Happy Clients</p>
+</div>
+
+<div>
+<h2>3+</h2>
+<p>Years Experience</p>
+</div>
+
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial fade-in">
+<h2>What Clients Say</h2>
+<p>"Amazing work! My business grew after working with Nexora."</p>
 </section>
 
 <footer>
@@ -84,57 +66,24 @@
 <p>Email: info@nexora.com</p>
 </footer>
 
-<!-- SCRIPT -->
+<!-- ANIMATION SCRIPT -->
 <script>
+const faders = document.querySelectorAll('.fade-in');
 
-/* TYPING EFFECT */
-const text = "We Build Modern Websites";
-let i = 0;
+function showOnScroll() {
+  const trigger = window.innerHeight - 50;
 
-function typing(){
-  if(i < text.length){
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing, 50);
-  }
-}
-typing();
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
 
-/* DARK MODE */
-function toggleMode(){
-  document.body.classList.toggle("dark-mode");
-}
-
-/* SCROLL REVEAL */
-const reveals = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    if(el.getBoundingClientRect().top < window.innerHeight - 100){
-      el.classList.add("active");
+    if (top < trigger) {
+      el.classList.add('active');
     }
   });
-});
+}
 
-/* COUNTER */
-const counters = document.querySelectorAll(".counter");
-
-counters.forEach(counter => {
-  const update = () => {
-    const target = +counter.getAttribute("data-target");
-    const current = +counter.innerText;
-    const increment = target / 50;
-
-    if(current < target){
-      counter.innerText = Math.ceil(current + increment);
-      setTimeout(update, 40);
-    } else {
-      counter.innerText = target + "+";
-    }
-  };
-  update();
-});
-
+window.addEventListener('scroll', showOnScroll);
+window.addEventListener('load', showOnScroll);
 </script>
 
 </body>

@@ -10,6 +10,7 @@
 body {
   background: #0a0a0a;
   color: white;
+  line-height: 1.6;
 }
 
 /* ===== HEADER ===== */
@@ -17,14 +18,14 @@ header {
   background: black;
   display: flex;
   justify-content: space-between;
-  padding: 15px 50px;
   align-items: center;
+  padding: 15px 50px;
+  flex-wrap: wrap;
 }
 
 .logo {
   font-size: 24px;
   font-weight: bold;
-  color: white;
 }
 
 .logo span {
@@ -33,8 +34,9 @@ header {
 
 nav a {
   color: white;
-  margin-left: 20px;
   text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
 }
 
 nav a:hover {
@@ -55,6 +57,12 @@ nav a:hover {
   padding: 40px;
   border-radius: 15px;
   text-align: center;
+  max-width: 600px;
+}
+
+.overlay h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 
 button {
@@ -62,8 +70,8 @@ button {
   background: orange;
   border: none;
   color: white;
-  margin-top: 15px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 button:hover {
@@ -93,9 +101,8 @@ button:hover {
   max-width: 1000px;
   margin: auto;
   padding: 40px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
   border-radius: 20px;
+  background: rgba(255,255,255,0.05);
 }
 
 .about-container {
@@ -105,12 +112,13 @@ button:hover {
 }
 
 .about-image img {
-  width: 300px;
+  width: 280px;
   border-radius: 15px;
 }
 
 .about-text h2 {
   color: orange;
+  margin-bottom: 10px;
 }
 
 .highlight {
@@ -119,14 +127,14 @@ button:hover {
 
 /* ===== SERVICES ===== */
 .services-section {
-  padding: 60px;
+  padding: 60px 20px;
   text-align: center;
 }
 
 .services-container {
   display: flex;
-  gap: 20px;
   justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
@@ -134,7 +142,8 @@ button:hover {
   background: #111;
   padding: 20px;
   border-radius: 15px;
-  width: 250px;
+  width: 260px;
+  text-align: center;
 }
 
 .service-card img {
@@ -144,7 +153,7 @@ button:hover {
 
 /* ===== CONTACT ===== */
 .contact-section {
-  padding: 60px;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -165,16 +174,35 @@ input, textarea {
   display: inline-block;
   background: green;
   padding: 10px 20px;
+  border-radius: 10px;
   color: white;
   margin-top: 10px;
-  border-radius: 10px;
+}
+
+/* ===== STATS SECTION (FIXED YOUR ISSUE) ===== */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 40px;
+  background: black;
+}
+
+.stats div {
+  font-size: 18px;
+}
+
+/* ===== TESTIMONIAL ===== */
+.testimonial {
+  padding: 40px;
+  text-align: center;
 }
 
 /* ===== FOOTER ===== */
 footer {
   background: black;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
 }
 
 /* ===== ANIMATION ===== */
@@ -189,15 +217,20 @@ footer {
   transform: translateY(0);
 }
 
-/* ===== MOBILE FIX ===== */
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
 
   header {
     flex-direction: column;
+    text-align: center;
   }
 
   nav {
     margin-top: 10px;
+  }
+
+  .hero {
+    height: 70vh;
   }
 
   .about-container {
@@ -210,8 +243,87 @@ footer {
     max-width: 300px;
   }
 
-  .hero {
-    height: 70vh;
+  .services-container {
+    flex-direction: column;
+    align-items: center;
   }
 
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+/* ===== ULTRA PREMIUM UI ===== */
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(45deg, #ff8a00, #ffc857);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Premium Button */
+button {
+  background: linear-gradient(45deg, #ff8a00, #ffb347);
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255,165,0,0.4);
+}
+
+/* Smooth Fade Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s ease;
+}
+
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navbar upgrade */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+/* Section spacing */
+section {
+  padding: 80px 20px;
+}
+
+/* Card hover */
+.service-card {
+  transition: 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Stats glow */
+.stats h2 {
+  color: #ffb347;
+  font-size: 32px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
